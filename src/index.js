@@ -7,6 +7,8 @@ const itemsRouter = require('./routes/items');
 const movementsRouter = require('./routes/movements');
 const reportsRouter = require('./routes/reports');
 const invitationsRouter = require('./routes/invitations');
+const shopRouter = require('./routes/shop');
+const authRouter = require('./routes/auth');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -28,7 +30,9 @@ app.use('/api/items', itemsRouter);
 app.use('/api/movements', movementsRouter);
 app.use('/api/reports', reportsRouter);
 app.use('/api/invitations', invitationsRouter);
-app.use('/api/team', invitationsRouter); // also expose /api/team
+app.use('/api/team', invitationsRouter);
+app.use('/api/shop', shopRouter);
+app.use('/api/auth', authRouter);
 
 // 404
 app.use((req, res) => {
